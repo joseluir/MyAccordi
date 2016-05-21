@@ -1,0 +1,131 @@
+	form 
+	{
+		text-align: center;
+		border-bottom-style: double;
+		padding: 10px;
+		border-top-style: double;
+		margin: 20px;
+	}
+	div
+	{
+    background: #ECECEA;
+    border-radius: 10px;
+    box-shadow: 0 0 10px;
+    width: 90%;
+    text-align: center;
+    margin: 23px; /* margen externo */
+    padding: 10px; /* espacio interno*/
+	}
+	figure img 
+	{
+    width: 80%;
+    box-shadow: 0 0 10px; /* es la sombra que se le da al texto */
+    border-radius: 20px;
+	}
+	figcaption 
+	{
+    font-family: Century Gothic;
+    padding: 20px;
+    font-size: 20px;
+    color: #2A2A00;
+	}
+	table
+	{	
+		width: 50%;
+		margin-left: 300px;
+		padding: 20px;
+	}
+	input[type="text"] 
+	{
+		width: 300px;
+		display: block;
+		height: 34px;
+		padding: 6px 12px;
+		font-size: 14px;
+		line-height: 1.42857143;
+		color: #555;
+		background-color: #fff;
+		background-image: none;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+		box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+		webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+		o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+		transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+	}
+	input[type="email"] 
+	{
+		width: 300px;
+		display: block;
+		height: 34px;
+		padding: 6px 12px;
+		font-size: 14px;
+		line-height: 1.42857143;
+		color: #555;
+		background-color: #fff;
+		background-image: none;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+		box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+		webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+		o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+		transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+	}
+		input[type="password"] 
+	{
+		width: 300px;
+		display: block;
+		height: 34px;
+		padding: 6px 12px;
+		font-size: 14px;
+		line-height: 1.42857143;
+		color: #555;
+		background-color: #fff;
+		background-image: none;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+		box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+		webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+		o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+		transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+	}
+	input[type="file"] 
+	{
+		width: 500px;
+		display: block;
+		height: 34px;
+		font-size: 14px;
+		line-height: 1.42857143;
+		color: #555;
+		background-color: #fff;
+		background-image: none;
+		
+	}
+	td 
+	{
+		padding: 3px;
+	}
+	input[type="submit"] 
+	{
+		margin-left: 110px;
+		box-shadow: 0 0 10px;
+		height: 30px;
+		background: rgba(255, 255, 255, 0.36);
+		color: black;
+	}
+	
+	label{
+		
+	
+		font-weight: bold;
+	}
+	
+	p
+	{
+		font-size: 15px;
+	
+		font-weight: bold;
+	}
