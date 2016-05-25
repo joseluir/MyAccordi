@@ -44,18 +44,6 @@ class Users extends CI_Model
 		
 	}
 	
-	function valid_user_ajax($login){ 
-				
-		$this->db->where('LOWER(avatar_name)=', strtolower($login));
-		$this->db->or_where('LOWER(email)=', strtolower($login));
-	    $query = $this->db->get($this->table_name);
-			  
-			 if($query->num_rows() == 1){
-	             
-				 echo $query->num_rows();
-				 
-			     }
-	  }
 	/**
 	 * Get user record by Id
 	 *

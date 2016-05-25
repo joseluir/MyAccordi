@@ -16,12 +16,17 @@
 	<!-- <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script> -->
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 	
-	<!--<link rel="stylesheet" type="text/css" href="<?= base_url() ?>public/css/formulario.css"/>-->
+	<link rel="stylesheet" type="text/css" href="<?= base_url() ?>public/css/formulario.css"/>
 	
 	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
 	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
 	<script type="text/javascript" src="<?=base_url();?>public/js/jquery-1.9.1.js"></script>
+	
+	
+	<!-- Bootstrap formulario login -->
+    <link type="text/css" rel="stylesheet" href="http://getbootstrap.com/dist/css/bootstrap.css">
+	<!-- Bootstrap formulario login -->
 	
 
 </head>
@@ -46,7 +51,7 @@
 		            <ul class="nav navbar-nav">
 		                <li class="active"><a href="<?=base_url() ?>">Inicio</a></li>
 		                <li class="active"><a href="#">Buscar Canción</a></li>
-		                <li class="active"><a href="#">Las 10 más visitadas</a></li>
+		                <li class="active"><a href="#">Las 10 más Visitadas</a></li>
 		            </ul>
 			        <ul>
 			         	<li class="dropdown">
@@ -54,9 +59,9 @@
 		                	<a href="#" class="dropdown-toggle" data-toggle="dropdown">Usuarios<b class="caret"></b> <span class="glyphicon glyphicon-user"></a>
                     		<ul role="menu" class="dropdown-menu">
 								<li><a href="<?=base_url().'index.php/auth/login' ?>">Iniciar Sesion</a></li>
-				                <li><a href="<?=base_url().'index.php/auth/register' ?>">Nuevo Usuario</a></li>
+				                <li><a href="<?=base_url().'index.php/auth/register' ?>">Registrar Usuario</a></li>
 				                <li class="divider"></li>
-				                	<li><a href="<?=base_url().'index.php/auth/forgot_password' ?>">Olvidé mi contraseña</a></li>
+				                	<li><a href="<?=base_url().'index.php/auth/forgot_password' ?>">Olvidé mi Contraseña</a></li>
 			            </li>
             			<!-- <form role="search" class="navbar-form navbar-right"> -->
                			<div class="form-group">

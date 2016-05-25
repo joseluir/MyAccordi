@@ -7,6 +7,8 @@ if ($use_username) {
 		'value' => set_value('username'),
 		'maxlength'	=> $this->config->item('username_max_length', 'tank_auth'),
 		'size'	=> 30,
+		'class' => 'form-control',
+		'placeholder' => 'Apodo', 
 	);
 }
 $email = array(
@@ -15,6 +17,8 @@ $email = array(
 	'value'	=> set_value('email'),
 	'maxlength'	=> 80,
 	'size'	=> 30,
+	'class' => 'form-control',
+	'placeholder' => 'Correo', 
 );
 $password = array(
 	'name'	=> 'password',
@@ -22,6 +26,8 @@ $password = array(
 	'value' => set_value('password'),
 	'maxlength'	=> $this->config->item('password_max_length', 'tank_auth'),
 	'size'	=> 30,
+	'class' => 'form-control',
+	'placeholder' => 'Contraseña', 
 );
 $confirm_password = array(
 	'name'	=> 'confirm_password',
@@ -29,6 +35,8 @@ $confirm_password = array(
 	'value' => set_value('confirm_password'),
 	'maxlength'	=> $this->config->item('password_max_length', 'tank_auth'),
 	'size'	=> 30,
+	'class' => 'form-control',
+	'placeholder' => 'Comfirmar Contraseña', 
 );
 
 $name = array(
@@ -37,6 +45,8 @@ $name = array(
 	'value'	=> set_value('name'),
 	'maxlength'	=> 50,
 	'size'	=> 30,
+	'class' => 'form-control',
+	'placeholder' => 'Nombres', 
 );
 
 $last_name = array(
@@ -45,86 +55,100 @@ $last_name = array(
 	'value'	=> set_value('last_name'),
 	'maxlength'	=> 50,
 	'size'	=> 30,
+	'class' => 'form-control',
+	'placeholder' => 'Apellidos', 
 );
 $captcha = array(
 	'name'	=> 'captcha',
 	'id'	=> 'captcha',
 	'maxlength'	=> 8,
+	'class' => 'form-control',
+	'placeholder' => 'Código confirmación',
 );
+
+$atributos = array(
+'class' => 'form-signin',
+'id' => 'form-signin',
+)
+
 ?>
 
 <h2>Registrar</h2>
+
+<div class="container">
 <?php
 /********************************************************************
  * form_open_multipar(); inicia un tag form y la accion que ocurra  *
  * dentro de este sera manejada por uri->uri_string()       @_@     *
  ********************************************************************/
- echo form_open($this->uri->uri_string()); ?>
 
-<p></strong>los campos con * son obligatorios</strong></p>
+ echo form_open($this->uri->uri_string(),$atributos); ?>
+
+<h5></strong>los campos con <em style="color: red;">*</em> son obligatorios</strong></h5>
+
 
 <table>
 	<?php if ($use_username) { ?>
 	<tr>
-		<td><?php echo form_label('* Apodo', $username['id']); ?></td>
+		<td style="color: red;"><?php echo form_label('*', $username['id']); ?></td>
 		<td><?php echo form_input($username); ?></td>
-		<td>&nbsp</td>
+		
 		</tr>
 	<tr>
 		<td>&nbsp</td>
 		<td style="color: red;"><?php echo form_error($username['name']); ?><?php echo isset($errors[$username['name']])?$errors[$username['name']]:''; ?></td>
-		<td>&nbsp</td>
+		
 	</tr>
 	<?php } ?>
 	<tr>
-		<td><?php echo form_label('* Correo', $email['id']); ?></td>
+		<td style="color: red;"><?php echo form_label('*', $email['id']); ?></td>
 		<td><?php echo form_input($email); ?></td>
-		<td>&nbsp</td>
+		
 		</tr>
 	<tr>
 		<td>&nbsp</td>
 		<td style="color: red;"><?php echo form_error($email['name']); ?><?php echo isset($errors[$email['name']])?$errors[$email['name']]:''; ?></td>
-		<td>&nbsp</td>
+		
 	</tr>
 	<tr>
-		<td><?php echo form_label('* Contraseña', $password['id']); ?></td>
+		<td style="color: red;"><?php echo form_label('*', $password['id']); ?></td>
 		<td><?php echo form_password($password); ?></td>
-		<td>&nbsp</td>		
+				
 	</tr>
 	<tr>
 		<td>&nbsp</td>
 		<td style="color: red;"><?php echo form_error($password['name']); ?></td>
-		<td>&nbsp</td>
+		
 	</tr>
 	<tr>
-		<td><?php echo form_label('* Confirmar Contraseña', $confirm_password['id']); ?></td>
+		<td style="color: red;"><?php echo form_label('*', $confirm_password['id']); ?></td>
 		<td><?php echo form_password($confirm_password); ?></td>
-		<td>&nbsp</td>
+		
 	</tr>
 	<tr>
 		<td>&nbsp</td>
 		<td style="color: red;"><?php echo form_error($confirm_password['name']); ?></td>
-		<td>&nbsp</td>
+		
 	</tr>
 	<tr>
-		<td><?php echo form_label('* Nombres', $name['id']); ?></td>
+		<td style="color: red;"><?php echo form_label('*', $name['id']); ?></td>
 		<td><?php echo form_input($name); ?></td>
-		<td>&nbsp</td>
+		
 	</tr>
 	<tr>
 		<td>&nbsp</td>
 		<td style="color: red;"><?php echo form_error($name['name']); ?><?php echo isset($errors[$name['name']])?$errors[$name['name']]:''; ?></td>
-		<td>&nbsp</td>
+		
 	</tr>
 	<tr>
-		<td><?php echo form_label('* Apellidos', $last_name['id']); ?></td>
+		<td style="color: red;"><?php echo form_label('*', $last_name['id']); ?></td>
 		<td><?php echo form_input($last_name); ?></td>
-		<td>&nbsp</td>
+		
 		</tr>
 	<tr>
 		<td>&nbsp</td>
 		<td style="color: red;"><?php echo form_error($last_name['name']); ?><?php echo isset($errors[$last_name['name']])?$errors[$last_name['name']]:''; ?></td>
-		<td>&nbsp</td>
+		
 	</tr>
 	
 	<?php if ($captcha_registration) {
@@ -151,22 +175,22 @@ $captcha = array(
 	<?php } else { ?>
 	<tr>
 		<td colspan="3">
-			<p>Ingrese las letras tal y como aparecen:</p>
+			<h5>Ingrese las letras tal y como aparecen: </h5>
 			<?php echo $captcha_html; ?>
 		</td>
 	</tr>
 	<tr>
-		<td><?php echo form_label('* Código confirmación', $captcha['id']); ?></td>
+		<td style="color: red;" ><?php echo form_label('*', $captcha['id']); ?></td>
 		<td><?php echo form_input($captcha); ?></td>
-		<td>&nbsp</td>		
+			
 	</tr>
 	<tr>
 		<td>&nbsp</td>
 		<td style="color: red;"><?php echo form_error($captcha['name']); ?></td>
-		<td>&nbsp</td>
+		
 	</tr>
 	<?php }
 	} ?>
 </table>
-<?php echo form_submit('register', 'Registrar'); ?>
+<?php echo form_submit('register', 'Registrar',"class='btn btn-lg btn-success btn-block'"); ?>
 <?php echo form_close(); ?>

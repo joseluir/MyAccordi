@@ -188,6 +188,16 @@ class Tank_auth
 		return $this->ci->session->userdata('status');
 	}
 	
+	
+	function get_captcha_time()
+	{
+		return $this->ci->session->userdata('captcha_time');
+	}
+	
+	function get_captcha_word()
+	{
+		return $this->ci->session->userdata('captcha_word');
+	}
 
 	/**
 	 * Create new user on the site and return some data about it:

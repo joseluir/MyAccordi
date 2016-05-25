@@ -40,7 +40,7 @@
 		            <ul class="nav navbar-nav">
 		                <li class="active"><a href="<?=base_url() ?>">Inicio</a></li>
 		                <li class="active"><a href="#">Buscar Canción</a></li>
-		                <li class="active"><a href="#">Las 10 más visitadas</a></li>
+		                <li class="active"><a href="#">Las 10 más Visitadas</a></li>
 		                <li class="active"><a href="#">Mis Canciones</a></li>
 		                <!-- <li class="active"><a href="GestionUsuarios">Gestión de Usuarios</a></li> -->
 			        </ul>

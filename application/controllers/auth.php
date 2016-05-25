@@ -163,22 +163,6 @@ class Auth extends CI_Controller
 		}
 	}
   
-	function login_ajax(){
-    	//verificamos si la petición es via ajax
-		if($this->input->is_ajax_request()){
-		
-				 if($this->input->post('login')!==''){
-				    $username = $this->input->post('login');
-				
-				    $this->users->valid_user_ajax($login);	
-				
-			    }
-				
-		}else{
-				redirect('auth/login');
-		}
-    	
-    }
 	/**
 	 * Logout user
 	 *
@@ -606,13 +590,10 @@ class Auth extends CI_Controller
 		));
 
 		// Save captcha params in session
-		echo 'letras '.$cap['word'].'<br>';
-		echo 'tiempo '.$cap['time'].'<br>';
-		$this->session->set_flashdata(array(
-				'captcha_word' => $cap['word'],
-				'captcha_time' => $cap['time'],
-		));
-
+		$this->session->set_userdata(array(
+								'captcha_word' => $cap['word'],
+								'captcha_time' => $cap['time'],
+						));
 		return $cap['image'];
 	}
 
@@ -624,19 +605,16 @@ class Auth extends CI_Controller
 	 */
 	function _check_captcha($code)
 	{
-		$time = $this->session->flashdata('captcha_time');
-		$word = $this->session->flashdata('captcha_word');
+		$time = $this->tank_auth->get_captcha_time();
+		$word = $this->tank_auth->get_captcha_word();
+		
+		$this->session->set_userdata(array('captcha_time' => '', 'captcha_word' => ''));
 
 		list($usec, $sec) = explode(" ", microtime());
 		$now = ((float)$usec + (float)$sec);
 
 		if ($now - $time > $this->config->item('captcha_expire', 'tank_auth')) {
 			$this->form_validation->set_message('_check_captcha', $this->lang->line('auth_captcha_expired'));
-			
-			echo 'tiempo actual '.$now.'<br>';
-			echo 'tiempo en el que se creo '.$time.'<br>';
-			echo 'diferencia '.($now - $time).'<br>';
-			echo 'tiempo a esperar '.$this->config->item('captcha_expire', 'tank_auth').'<br>';
 			return FALSE;
 	
 		} elseif (($this->config->item('captcha_case_sensitive', 'tank_auth') AND
