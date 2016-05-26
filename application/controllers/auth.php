@@ -19,6 +19,9 @@ class Auth extends CI_Controller
 	function index()
 	{
 		if ($message = $this->session->flashdata('message')) {
+			$header['titulo'] = 'Registro Correcto';
+			
+			$this->load->view('templates/headerUnregistered',$header);
 			$this->load->view('auth/general_message', array('message' => $message));
 		} else {
 			redirect('/auth/login/');
@@ -57,11 +60,7 @@ class Auth extends CI_Controller
 				
 			));
 			
-			$header['titulo'] = 'Imagen Usuario';
-			$header['username']	= $this->tank_auth->get_username();
-			
-			$this->load->view('templates/headerRegistered',$header);
-			$this->load->view('welcome', $data);
+			redirect('/auth/cargar_vista/');
 		}
 		
 	}
@@ -130,6 +129,7 @@ class Auth extends CI_Controller
 						$this->form_validation->set_value('remember'),
 						$data['login_by_username'],
 						$data['login_by_email'])) {								// success
+					
 					redirect('');
 
 				} else {
@@ -247,7 +247,7 @@ class Auth extends CI_Controller
 						}
 						unset($data['password']); // Clear password (just for any case)
 
-						$this->_show_message($this->lang->line('auth_message_registration_completed_2').' '.anchor('/auth/login/', 'Login'));
+						$this->_show_message($this->lang->line('auth_message_registration_completed_2').' '.anchor('/auth/login/', 'iniciar sesión.'));
 					}
 				} else {
 					$errors = $this->tank_auth->get_error_message();

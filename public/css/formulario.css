@@ -39,6 +39,30 @@ body {
   border-top-right-radius: 0;
 }
 
+    figure img 
+	{
+    width: 80%;
+    box-shadow: 0 0 10px; 
+    border-radius: 20px;
+	}
+	figcaption 
+	{
+    font-family: Century Gothic;
+    padding: 20px;
+    font-size: 20px;
+    color: #2A2A00;
+	}
+	.img-perfil
+	{
+    background: #ECECEA;
+    border-radius: 10px;
+    box-shadow: 0 0 10px;
+    width: 90%;
+    text-align: center;
+    margin: 23px; 
+    padding: 10px;
+	}
+
 /*	form 
 	{
 		text-align: center;

@@ -15,7 +15,7 @@
 	<script type="text/javascript" src="http://getbootstrap.com/dist/js/bootstrap.js"></script>
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 	
-	<!--<link rel="stylesheet" type="text/css" href="<?= base_url() ?>public/css/formulario.css"/>-->
+	<link rel="stylesheet" type="text/css" href="<?= base_url() ?>public/css/formulario.css"/>
 
 
 </head>
@@ -41,14 +41,14 @@
 		                <li class="active"><a href="<?=base_url() ?>">Inicio</a></li>
 		                <li class="active"><a href="#">Buscar Canción</a></li>
 		                <li class="active"><a href="#">Las 10 más Visitadas</a></li>
-		                <li class="active"><a href="#">Mis Canciones</a></li>
-		                <!-- <li class="active"><a href="GestionUsuarios">Gestión de Usuarios</a></li> -->
+		                <li class="active"><a href="#">Mis Canciones</a></li>		                
 			        </ul>
 			        <ul>
 			         	<li class="dropdown">
 			         		<div role="Ingresar" class="navbar-form navbar-right">	
-		                	<a href="#" class="dropdown-toggle" data-toggle="dropdown"> <?php echo $username ?> <b class="caret"></b> <span class="glyphicon glyphicon-user"></a>
+		                	<a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: white;"> <?php echo $username ?> <b class="caret"></b> <span class="glyphicon glyphicon-user"></a>
                     		<ul role="menu" class="dropdown-menu">
+                    			<li><a href="<?=base_url().'index.php/auth/cargar_vista' ?>">Imagen de Perfil</a></li>
 								<li><a href="<?=base_url().'index.php/auth/logout'?>">Cerrar Sesión</a></li>			                                
 			            </li>
             			<!-- <form role="search" class="navbar-form navbar-right"> -->

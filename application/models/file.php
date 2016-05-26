@@ -35,7 +35,10 @@ class File extends CI_Model {
 			return null;
 		}
 		else{
-			$file_data = $this->upload->data();
+			$file_data = $this->upload->data();?>
+			<script type="text/javascript" charset="utf-8">
+					alert("Imagen cargada correctamente");
+			</script> <?php
 			return $file_data['file_name'];
 		}
 	}

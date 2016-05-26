@@ -36,7 +36,7 @@ $confirm_password = array(
 	'maxlength'	=> $this->config->item('password_max_length', 'tank_auth'),
 	'size'	=> 30,
 	'class' => 'form-control',
-	'placeholder' => 'Comfirmar Contraseña', 
+	'placeholder' => 'Confirmar Contraseña', 
 );
 
 $name = array(

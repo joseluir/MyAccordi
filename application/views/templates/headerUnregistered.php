@@ -56,7 +56,7 @@
 			        <ul>
 			         	<li class="dropdown">
 			         		<div role="Ingresar" class="navbar-form navbar-right">	
-		                	<a href="#" class="dropdown-toggle" data-toggle="dropdown">Usuarios<b class="caret"></b> <span class="glyphicon glyphicon-user"></a>
+		                	<a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: white;">Usuarios<b class="caret"></b> <span class="glyphicon glyphicon-user"></a>
                     		<ul role="menu" class="dropdown-menu">
 								<li><a href="<?=base_url().'index.php/auth/login' ?>">Iniciar Sesion</a></li>
 				                <li><a href="<?=base_url().'index.php/auth/register' ?>">Registrar Usuario</a></li>

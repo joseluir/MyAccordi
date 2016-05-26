@@ -43,12 +43,12 @@
 		            <ul class="nav navbar-nav">
 		                <li class="active"><a href="Index">Inicio</a></li>
 		                <li class="active"><a href="#">Gestión de Canciones</a></li>
-		                <li class="active"><a href="GestionUsuarios">Gestión de Usuarios</a></li>
+		                <li class="active"><a href="#">Gestión de Usuarios</a></li>
 			        </ul>
 			        <ul>
 			         	<li class="dropdown">
 			         		<div role="Ingresar" class="navbar-form navbar-right">	
-		                	<a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $username ?> <b class="caret"></b> <span class="glyphicon glyphicon-user"></a>
+		                	<a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: white;"><?php echo $username ?> <b class="caret"></b> <span class="glyphicon glyphicon-user"></a>
                     		<ul role="menu" class="dropdown-menu">
 								<li><a href="<?=base_url().'index.php/auth/logout'?>">Cerrar Sesión</a></li>				                
 			            </li>
