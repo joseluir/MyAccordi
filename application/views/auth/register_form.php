@@ -1,3 +1,178 @@
+<script type="text/javascript">
+
+	var pass = "";
+
+
+	$(document).ready(function(){
+	
+	$('#username').focus();	
+	$('#username').blur(function(){
+		 var apodo = $(this).val();
+		    
+		  if(apodo ==''){
+		 
+		    $('#msg_username').html('El Apodo es Requerido').css('color','red');
+		    	
+		    
+		    	
+		    }else{
+		    		
+		    	if (apodo.length < 6){
+		    	
+		    	 $('#msg_username').html('El Apodo Debe Contener Mínimo 6 Carácteres').css('color','red');
+		    	}
+		    	else{
+		    		$('#msg_username').empty();
+		    	}			
+			   
+		    }//fin del else
+	   				 
+		 });             		                              	        	  	 
+		    						
+		     
+	});	  
+		
+	
+	$(document).ready(function(){
+	$('#email').blur(function(){		 
+		 var correo = $(this).val();
+		    
+		  if(correo==''){
+		    	
+		    $('#msg_email').html('El Correo es Requerido').css('color','red');
+		    	
+		    }else{
+		    				
+			   $('#msg_email').empty();
+		    }
+	
+		});	  
+	});	
+	
+	
+	
+	
+	$(document).ready(function(){
+	$('#password').blur(function(){		 
+		 var contrasena = $(this).val();
+		    
+		  if(contrasena==''){
+		    	
+		    $('#msg_password').html('La Contraseña es Requerida').css('color','red');
+		    	
+		    }else{
+		    	
+		    	if (contrasena.length < 8){
+		    	
+		    	 	$('#msg_password').html('La Contraseña Debe Contener Mínimo 8 Carácteres').css('color','red');
+		    	}
+		    	else{
+		    		
+		    		pass=contrasena;		
+			   		$('#msg_password').empty();
+		    
+		    	}
+		    }
+	
+		});	  
+	});	
+	
+	
+	
+	
+	$(document).ready(function(){
+	$('#confirm_password').blur(function(){		 
+		 var confirmacion = $(this).val();
+		    
+		  if(confirmacion==''){
+		    	
+		    $('#msg_confirm_password').html('La Contraseña de Confirmación es Requerida').css('color','red');
+		    	
+		    }else{
+		    	
+		    	if (confirmacion.length < 8){
+		    	
+		    	 	$('#msg_confirm_password').html('La Contraseña Debe Contener Mínimo 8 Carácteres').css('color','red');
+		    	}
+		    	else{
+		    			
+		    		if (pass === confirmacion){
+		    				    				
+			   			$('#msg_confirm_password').empty();
+			   		
+			   		}
+		    		else{
+		    			
+		    			$('#msg_confirm_password').html('Las Contraseña no Coinciden').css('color','red');
+		    			
+		    	
+		    		}
+		    
+		    	}
+		    }
+	
+		});	  
+	});	
+	
+	
+	
+	
+	$(document).ready(function(){
+	$('#name').blur(function(){		 
+		 var nombre = $(this).val();
+		    
+		  if(nombre==''){
+		    	
+		    $('#msg_name').html('El Nombre es Requerido').css('color','red');
+		    	
+		    }else{
+		    				
+			   $('#msg_name').empty();
+		    }
+	
+		});	  
+	});	
+	
+	
+	
+	
+	$(document).ready(function(){
+	$('#last_name').blur(function(){		 
+		 var apellido = $(this).val();
+		    
+		  if(apellido==''){
+		    	
+		    $('#msg_last_name').html('El Apellido es Requerido').css('color','red');
+		    	
+		    }else{
+		    				
+			   $('#msg_last_name').empty();
+		    }
+	
+		});	  
+	});	
+	
+	
+	$(document).ready(function(){
+	$('#captcha').blur(function(){		 
+		 var robot = $(this).val();
+		    
+		  if(robot==''){
+		    	
+		    $('#msg_captcha').html('El Apellido es Requerido').css('color','red');
+		    	
+		    }else{
+		    				
+			   $('#msg_captcha').empty();
+		    }
+	
+		});	  
+	});	
+	
+	
+</script>
+
+
 
 <?php
 if ($use_username) {
@@ -96,7 +271,7 @@ $atributos = array(
 		</tr>
 	<tr>
 		<td>&nbsp</td>
-		<td style="color: red;"><?php echo form_error($username['name']); ?><?php echo isset($errors[$username['name']])?$errors[$username['name']]:''; ?></td>
+		<td id='msg_username' style="color: red;"><?php echo form_error($username['name']); ?><?php echo isset($errors[$username['name']])?$errors[$username['name']]:''; ?></td>
 		
 	</tr>
 	<?php } ?>
@@ -107,7 +282,7 @@ $atributos = array(
 		</tr>
 	<tr>
 		<td>&nbsp</td>
-		<td style="color: red;"><?php echo form_error($email['name']); ?><?php echo isset($errors[$email['name']])?$errors[$email['name']]:''; ?></td>
+		<td id='msg_email' style="color: red;"><?php echo form_error($email['name']); ?><?php echo isset($errors[$email['name']])?$errors[$email['name']]:''; ?></td>
 		
 	</tr>
 	<tr>
@@ -117,7 +292,7 @@ $atributos = array(
 	</tr>
 	<tr>
 		<td>&nbsp</td>
-		<td style="color: red;"><?php echo form_error($password['name']); ?></td>
+		<td id='msg_password' style="color: red;"><?php echo form_error($password['name']); ?></td>
 		
 	</tr>
 	<tr>
@@ -127,7 +302,7 @@ $atributos = array(
 	</tr>
 	<tr>
 		<td>&nbsp</td>
-		<td style="color: red;"><?php echo form_error($confirm_password['name']); ?></td>
+		<td id='msg_confirm_password' style="color: red;"><?php echo form_error($confirm_password['name']); ?></td>
 		
 	</tr>
 	<tr>
@@ -137,7 +312,7 @@ $atributos = array(
 	</tr>
 	<tr>
 		<td>&nbsp</td>
-		<td style="color: red;"><?php echo form_error($name['name']); ?><?php echo isset($errors[$name['name']])?$errors[$name['name']]:''; ?></td>
+		<td id='msg_name' style="color: red;"><?php echo form_error($name['name']); ?><?php echo isset($errors[$name['name']])?$errors[$name['name']]:''; ?></td>
 		
 	</tr>
 	<tr>
@@ -147,7 +322,7 @@ $atributos = array(
 		</tr>
 	<tr>
 		<td>&nbsp</td>
-		<td style="color: red;"><?php echo form_error($last_name['name']); ?><?php echo isset($errors[$last_name['name']])?$errors[$last_name['name']]:''; ?></td>
+		<td id='msg_last_name' style="color: red;"><?php echo form_error($last_name['name']); ?><?php echo isset($errors[$last_name['name']])?$errors[$last_name['name']]:''; ?></td>
 		
 	</tr>
 	
@@ -186,7 +361,7 @@ $atributos = array(
 	</tr>
 	<tr>
 		<td>&nbsp</td>
-		<td style="color: red;"><?php echo form_error($captcha['name']); ?></td>
+		<td id='msg_captcha' style="color: red;"><?php echo form_error($captcha['name']); ?></td>
 		
 	</tr>
 	<?php }

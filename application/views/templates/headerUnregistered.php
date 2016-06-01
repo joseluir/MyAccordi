@@ -10,28 +10,29 @@
 	<!-- Bootstrap -->
     <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Para que se ajuste a las resoluciones de todos los dispositivos -->
     <link type="text/css" rel="stylesheet" href="http://getbootstrap.com/dist/css/bootstrap.css"> <!-- cargamos las css en la url principal, usando bootstrap -->
-	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-	<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script> <!-- ultima version del js comprimida -->
+	<!-- <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>--> <!-- version estable js comprimida -->
 	<script type="text/javascript" src="http://getbootstrap.com/dist/js/bootstrap.js"></script>
-	<!-- <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script> -->
+
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 	
 	<link rel="stylesheet" type="text/css" href="<?= base_url() ?>public/css/formulario.css"/>
 	
-	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
-	<script type="text/javascript" src="<?=base_url();?>public/js/jquery-1.9.1.js"></script>
+	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 	
 	
 	<!-- Bootstrap formulario login -->
     <link type="text/css" rel="stylesheet" href="http://getbootstrap.com/dist/css/bootstrap.css">
 	<!-- Bootstrap formulario login -->
 	
+	
 
 </head>
 	<!-- <p><center>Header</center></p> -->
-<body>
+<body >
+	
+	
 
 	<div class="container">
 		<nav role="navigation" class="navbar navbar-inverse">

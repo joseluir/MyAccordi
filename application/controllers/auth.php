@@ -90,6 +90,7 @@ class Auth extends CI_Controller
 	 */
 	function login()
 	{
+
 		if ($this->tank_auth->is_logged_in()) {									// logged in
 			redirect('');
 
@@ -157,6 +158,7 @@ class Auth extends CI_Controller
 			
 			$header['titulo'] = 'Iniciar Sesión';
 			
+		
 		   $this->load->view('templates/headerUnregistered',$header);
 		   $this->load->view('auth/login_form',$data);
 						

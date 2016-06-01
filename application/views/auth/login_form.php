@@ -1,43 +1,62 @@
 <script type="text/javascript">
 
-$(document).ready(function(){
+	$(document).ready(function(){
 	
-$('#login').focus();	
-$('#login').blur(function(){
-	 var user = $(this).val();
-	    
-	  if(user==''){
-	    	
-	    $('#msg_login').html('El Correo o Apodo es Requerido').css('color','red');
-	    	
-	    }else{
-	    				
-		   $('#msg_password').empty();
-	    }
-   				 
-				 });             		                              	        	  	 
-	    						
-	    } //fin del else
-
-	  });	  
-});	
-
-$(document).ready(function(){
-$('#password).blur(function(){		 
-	 var user = $(this).val();
-	    
-	  if(user==''){
-	    	
-	    $('#msg_password').html('La Contraseña es Requerida').css('color','red');
-	    	
-	    }else{
-	    				
-		   $('#msg_password').empty();
-	    }
-
+	$('#login').focus();	
+	$('#login').blur(function(){
+		 var user = $(this).val();
+		    
+		  if(user==''){
+		 
+		    $('#msg_login').html('El Correo o Apodo es Requerido').css('color','red');
+		    	
+		    }else{
+		    				
+			   $('#msg_login').empty();
+		    }//fin del else
+	   				 
+		 });             		                              	        	  	 
+		    						
+		     
 	});	  
-});	
+		
+	
+	$(document).ready(function(){
+	$('#password').blur(function(){		 
+		 var user = $(this).val();
+		    
+		  if(user==''){
+		    	
+		    $('#msg_password').html('La Contraseña es Requerida').css('color','red');
+		    	
+		    }else{
+		    				
+			   $('#msg_password').empty();
+		    }
+	
+		});	  
+	});	
+	
+	
+	
+	$(document).ready(function(){
+	$('#captcha').blur(function(){		 
+		 var robot = $(this).val();
+		    
+		  if(robot==''){
+		    	
+		    $('#msg_captcha').html('El Apellido es Requerido').css('color','red');
+		    	
+		    }else{
+		    				
+			   $('#msg_captcha').empty();
+		    }
+	
+		});	  
+	});	
+	
 </script>
+	
 
 <?php
 $login = array(
@@ -156,7 +175,7 @@ $atributos = array(
 		</tr>
 		<tr>
 			<td>&nbsp</td>
-			<td style="color: red;"><?php echo form_error($captcha['name']); ?></td>
+			<td id='msg_captcha' style="color: red;"><?php echo form_error($captcha['name']); ?></td>
 			
 		</tr>
 		<?php }
