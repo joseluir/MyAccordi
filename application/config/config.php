@@ -29,7 +29,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 /***********************************************************************
 *  url donde se encuentra almacenada la aplicacion dentro del servidor *
 ************************************************************************/
-$config['base_url'] = 'http://localhost/Myaccordi';
+$config['base_url'] = 'http://myaccordi-ris59.rhcloud.com';
 
 /*
 |--------------------------------------------------------------------------
@@ -70,7 +70,7 @@ $config['uri_protocol']	= 'REQUEST_URI';
 |
 | https://codeigniter.com/user_guide/general/urls.html
 */
-$config['url_suffix'] = '';
+$config['url_suffix'] = '.html';
 
 /*
 |--------------------------------------------------------------------------
@@ -320,7 +320,7 @@ $config['cache_query_string'] = FALSE;
 | https://codeigniter.com/user_guide/libraries/encryption.html
 |
 */
-$config['encryption_key'] = '';
+$config['encryption_key'] = 'harviacode';
 
 /*
 |--------------------------------------------------------------------------

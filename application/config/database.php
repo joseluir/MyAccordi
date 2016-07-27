@@ -75,9 +75,9 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
+	'hostname' => 'http://myaccordi-ris59.rhcloud.com',
+	'username' => 'admindz1gpvS',
+	'password' => 'we3BaZmMhsnM',
 	'database' => 'myaccordi',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
