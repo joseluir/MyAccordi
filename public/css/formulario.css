@@ -1,7 +1,18 @@
 body {
-  padding-top: 40px;
-  padding-bottom: 40px;
-  background-color: white;;
+    background-position: center;
+    background-image: url("../img_users/fondoversion2.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+#grafica {
+    height: 400px; 
+    min-width: 310px; 
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .form-signin {
@@ -62,6 +73,47 @@ body {
     margin: 23px; 
     padding: 10px;
 	}
+
+	  <style type="text/css">
+	#pmId {
+
+	}
+
+	#scorebarBorder {
+		border: 1px solid #666666;
+		height: 5px;
+		position: relative;
+		width: 122px;
+	}
+
+	#scorebar {
+		background-image: url("pm.png");
+	}
+
+	#scorebar {
+		background-position: 0 0;
+		background-repeat: no-repeat;
+		height: 5px;
+		width: 122px;
+		z-index: 0;
+	}
+	#complexity {
+    padding: 0;
+    text-align: center;
+    top: 0;
+    width: 122px;
+    z-index: 10;
+    background: white;
+	}
+	img#logo {
+    width: 50px;
+    height: 30px;
+}
+table#mytable {
+    background: white;
+}
+
+  </style>
 
 /*	form 
 	{

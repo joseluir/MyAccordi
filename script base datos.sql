@@ -120,6 +120,53 @@ ALTER TABLE `user_autologin`
 -- --------------------------------------------------------
 
 
+CREATE TABLE IF NOT EXISTS `cancion` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(100) NOT NULL,
+  `autor` varchar(100) NOT NULL,
+  `genero` varchar(100) NOT NULL,
+  `album` varchar(100) DEFAULT NULL,
+  `creacion` varchar(100) NOT NULL,
+  `letra` varchar(1750) NOT NULL,
+  `ruta_video` varchar(250) DEFAULT NULL,
+  `ruta_audio` varchar(250) DEFAULT NULL,
+  `user_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_cancion_user_id` (`user_id`)  
+	
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+
+
+ALTER TABLE `cancion`
+  ADD CONSTRAINT `fk_cancion_user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- --------------------------------------------------------
+
+
+
+CREATE TABLE IF NOT EXISTS `visita` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `cancion_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_visita_user_id` (`user_id`),
+  KEY `fk_visita_cancion_id` (`cancion_id`)  
+	
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+
+
+ALTER TABLE `visita`
+  ADD CONSTRAINT `fk_visita_user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+ALTER TABLE `visita`
+  ADD CONSTRAINT `fk_visita_cancion_id` FOREIGN KEY (`cancion_id`) REFERENCES `cancion` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- --------------------------------------------------------
+
+
+
 
 INSERT INTO `roles` VALUES ('0', 'administrador');
 INSERT INTO `roles` VALUES ('1', 'miembro');

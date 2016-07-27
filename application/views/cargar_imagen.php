@@ -34,13 +34,13 @@ $atributos = array(
 			*  form_upload() para cargar archivos                                              @_@       *
 			**********************************************************************************************/
 			?>
-			<p class="lead">Selecciona una nueva imagen dando click sobre el <strong> boton examinar</strong>. </p>
-			<p class="lead">Recuerda:<br>La imagen debe ser <strong> png, jpg o gif.</strong><br>Tamaño no maximo a <strong> 1024 * 768. </strong><br>No pesar mas de <strong> 1024 KB o 1 MB. </strong> </p>
+			<p>Selecciona una nueva imagen dando click sobre el <strong> boton azul</strong>. </p>
+			<p>Recuerda:<br>La imagen debe ser <strong> png, jpg o gif.</strong><br>Tamaño no maximo a <strong> 1024 * 768. </strong><br>No pesar mas de <strong> 1024 KB o 1 MB. </strong> </p>
 		
 		</td>
 	</tr>
 	<tr>
-		<?php $data['name'] = 'filename'; $data['class'] = 'btn btn-lg btn-success btn-block'; ?>
+		<?php $data['name'] = 'filename'; $data['class'] = 'btn btn-lg btn-primary btn-block'; ?>
 		<td><?php echo form_upload($data); ?></td>
 	</tr>
 	<tr>

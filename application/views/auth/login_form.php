@@ -112,7 +112,7 @@ $atributos = array(
  	
 	<?php echo form_open($this->uri->uri_string(),$atributos); ?>
 	
-	<h5></strong>los campos con <em style="color: red;">*</em> son obligatorios</strong></h5>
+	<h5><strong>los campos con <em style="color: red;">*</em> son obligatorios</strong></h5>
 	
 	<table>
 		<tr>

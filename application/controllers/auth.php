@@ -1,5 +1,12 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
+		/*******************************************************************************
+		* Este es el controlador que maneja las acciones que tendra el usuario al      *
+		* momento de iniciar sesion, terminar sesion, registrarse, cancelar registro,  *
+		* recuperar contraseña, seleccionar imagen, cambiar correo o contraseña o apodo*
+		* o imagen                                             @_@                     *
+		********************************************************************************/
+
 class Auth extends CI_Controller
 {
 	function __construct()
@@ -23,66 +30,83 @@ class Auth extends CI_Controller
 			
 			$this->load->view('templates/headerUnregistered',$header);
 			$this->load->view('auth/general_message', array('message' => $message));
+			$this->load->view('templates/footer');
 		} else {
 			redirect('/auth/login/');
 		}
 	}
 
-	/*********************************************************************************************
-	*  funcion que permite subir la imagen dentro de la carpeta public/img_users/      @_@       *
-	*  y ademas guardar el nombre de esta imagen dentro de la tabla users en la base de datos    *															   *
-	**********************************************************************************************/
+	/***************************************************************************************************
+	*  funcion que permite subir la imagen del usuario dentro de la carpeta public/img_users/          *
+	*  y ademas guardar el nombre de esta imagen dentro de la tabla users en la base de datos    @_@   *															   
+	****************************************************************************************************/
 	 public function subir(){
-	 	$aux = 0;
 		
-		$user_id = $this->tank_auth->get_user_id();
-	 	$data['user_id'] = $user_id;
-		$data['image']	= $this->tank_auth->get_image();
-		
-		$post = $this->input->post();
-		$ruta = $this->file->UploadImage('./public/img_users/','No es posible subir la imagen');
-		
-		($ruta != NULL) ? $this->users->insertar_foto($user_id, $ruta) : ($aux = 1) ;
-		
-		if ($aux == 1) {
-			$header['titulo'] = 'Imagen Usuario';
-			$header['username']	= $this->tank_auth->get_username();
-			
-			$this->load->view('templates/headerRegistered',$header);
-			$this->load->view('cargar_imagen',$data);
+		if (!$this->tank_auth->is_logged_in()) {								// not logged in or not activated
+			redirect('/auth/login/');
+
 		} else {
-			$data['username']	= $this->tank_auth->get_username();
-			$data['name']	= $this->tank_auth->get_name();
 		
-			$this->session->set_userdata(array(
-				
-				'image'	=> $ruta,
-				
-			));
+		
+		 	$aux = 0;
 			
-			redirect('/auth/cargar_vista/');
-		}
-		
+			$user_id = $this->tank_auth->get_user_id();
+		 	$data['user_id'] = $user_id;
+			$data['image']	= $this->tank_auth->get_image();
+			
+			$post = $this->input->post();
+			$ruta = $this->file->UploadImage('./public/img_users/','No es posible subir la imagen');
+			
+			($ruta != NULL) ? $this->users->insertar_foto($user_id, $ruta) : ($aux = 1) ;
+			
+			if ($aux == 1) {
+				$header['titulo'] = 'Imagen Usuario';
+				$header['username']	= $this->tank_auth->get_username();
+				
+				$this->load->view('templates/headerRegistered',$header);
+				$this->load->view('cargar_imagen',$data);
+				$this->load->view('templates/footer');
+			} else {
+				$data['username']	= $this->tank_auth->get_username();
+				$data['name']	= $this->tank_auth->get_name();
+			
+				$this->session->set_userdata(array(
+					
+					'image'	=> $ruta,
+					
+				));
+				
+				redirect('/auth/cargar_vista/');
+			}
+		}	
 	}
 	
-	/******************************************************************************************************************************************
-	*  funcion que permite cargar la vista en la cual se ingresa la imagen para posteriormente almacenarla en la base de datos    @_@         *
-	*  ademas al momento de cargar la imagen se le envia el id correspondiente del usuario que se obtiene de la sesion que esta iniciada      *															   *
-	*******************************************************************************************************************************************/
+	/*********************************************************************************************************************************************
+	*  funcion que permite cargar la vista en la cual se ingresara la imagen del usuario para posteriormente almacenarla en la base de datos     *
+	*  ademas al momento de cargar la imagen se le envia el id correspondiente del usuario que se obtiene de la sesion que esta iniciada    @_@  *															   *
+	**********************************************************************************************************************************************/
 	public function cargar_vista(){
-		
-		$data['user_id'] = $this->tank_auth->get_user_id();
-		$data['image']	= $this->tank_auth->get_image();
-		$header['titulo'] = 'Imagen perfil';
-		$header['username']	= $this->tank_auth->get_username();
-			
-		$this->load->view('templates/headerRegistered',$header);
-		$this->load->view('cargar_imagen',$data);
-	} 
+		if (!$this->tank_auth->is_logged_in()) {								// not logged in or not activated
+			redirect('/auth/login/');
+
+		} else {
+				
+			$data['user_id'] = $this->tank_auth->get_user_id();
+			$data['image']	= $this->tank_auth->get_image();
+			$header['titulo'] = 'Imagen perfil';
+			$header['username']	= $this->tank_auth->get_username();
+				
+			$this->load->view('templates/headerRegistered',$header);
+			$this->load->view('cargar_imagen',$data);
+		    $this->load->view('templates/footer');
+	
+		}
+	}
 	 
 	 
-	 
-	 
+	/***********************************************************************************************
+	*  funcion que permite aun usuario ya registrado en la app poder iniciar sesion       	  @_@  *															   *
+	************************************************************************************************/
 	 /**
 	 * Login user on the site
 	 *
@@ -161,10 +185,14 @@ class Auth extends CI_Controller
 		
 		   $this->load->view('templates/headerUnregistered',$header);
 		   $this->load->view('auth/login_form',$data);
-						
+			$this->load->view('templates/footer');
 		}
 	}
   
+  
+    /***********************************************************************************************
+	*  funcion que permite aun usuario ya con sesion iniciada podeer cerrar esta         	  @_@  *															   *
+	************************************************************************************************/
 	/**
 	 * Logout user
 	 *
@@ -177,6 +205,10 @@ class Auth extends CI_Controller
 		$this->_show_message($this->lang->line('auth_message_logged_out'));
 	}
 
+
+	/***********************************************************************************************
+	*  funcion que permite aun usuario anonimo poder registrarse en la app     	  @_@ 			   *
+	************************************************************************************************/
 	/**
 	 * Register user on the site
 	 *
@@ -271,9 +303,13 @@ class Auth extends CI_Controller
 			
 			$this->load->view('templates/headerUnregistered',$header);
 			$this->load->view('auth/register_form', $data);
+			$this->load->view('templates/footer');
 		}
 	}
 
+	/***********************************************************************************************
+	*  funcion que envia un correo electronico para activar el correo asociado a una cuenta	  @_@  *															   
+	************************************************************************************************/
 	/**
 	 * Send activation email again, to the same or new email address
 	 *
@@ -309,6 +345,9 @@ class Auth extends CI_Controller
 		}
 	}
 
+	/*******************************************************************************************************************
+	*  funcion que aciva una cuenta al dar click en la URL dentro del correo que se envia de activacion       	  @_@  *															   
+	********************************************************************************************************************/
 	/**
 	 * Activate user account.
 	 * User is verified by user_id and authentication code in the URL.
@@ -331,6 +370,9 @@ class Auth extends CI_Controller
 		}
 	}
 
+	/******************************************************************************************************************
+	*  funcion que genera una nueva contraseña y es enviada al correo, usada en casos de ovido de contraseña	 @_@  *															   
+	*******************************************************************************************************************/
 	/**
 	 * Generate reset code (to change password) and send it to user
 	 *
@@ -345,7 +387,7 @@ class Auth extends CI_Controller
 			redirect('/auth/send_again/');
 
 		} else {
-			$this->form_validation->set_rules('login', 'correo o apodo', 'trim|required|xss_clean|alpha_dash');
+			$this->form_validation->set_rules('login', 'correo o apodo', 'trim|required|xss_clean');
 
 			$data['errors'] = array();
 
@@ -371,6 +413,7 @@ class Auth extends CI_Controller
 			$this->load->view('templates/headerUnregistered',$header);
 			
 			$this->load->view('auth/forgot_password_form', $data);
+			$this->load->view('templates/footer');
 		}
 	}
 
@@ -419,6 +462,9 @@ class Auth extends CI_Controller
 		$this->load->view('auth/reset_password_form', $data);
 	}
 
+	/**************************************************************
+	*  funcion que permite al usuario cambiar la contraseña	 @_@  *															   
+	***************************************************************/
 	/**
 	 * Change user password
 	 *
@@ -448,9 +494,13 @@ class Auth extends CI_Controller
 				}
 			}
 			$this->load->view('auth/change_password_form', $data);
+			$this->load->view('templates/footer');
 		}
 	}
-
+	
+	/**********************************************************************
+	*  funcion que permite al usuario cambiar el correo electronico	 @_@  *															   
+	***********************************************************************/
 	/**
 	 * Change user email
 	 *
@@ -485,6 +535,7 @@ class Auth extends CI_Controller
 				}
 			}
 			$this->load->view('auth/change_email_form', $data);
+			$this->load->view('templates/footer');
 		}
 	}
 
@@ -509,7 +560,11 @@ class Auth extends CI_Controller
 			$this->_show_message($this->lang->line('auth_message_new_email_failed'));
 		}
 	}
-
+	
+	
+	/**************************************************************************************
+	*  funcion que permite al usuario deshacer el registro ya relaizado en la app	 @_@  *															   
+	***************************************************************************************/
 	/**
 	 * Delete user from the site (only when user is logged in)
 	 *
@@ -536,6 +591,7 @@ class Auth extends CI_Controller
 				}
 			}
 			$this->load->view('auth/unregister_form', $data);
+			$this->load->view('templates/footer');
 		}
 	}
 
@@ -551,6 +607,9 @@ class Auth extends CI_Controller
 		redirect('/auth/');
 	}
 
+	/******************************************************************************************************************************
+	*  funcion que envia un correo electronico desde la cuenta de myaccordi@gmail.com al usuario, para distintos eventos 	 @_@  *															   
+	*******************************************************************************************************************************/
 	/**
 	 * Send email message of given type (activate, forgot_password, etc.)
 	 *
@@ -571,6 +630,9 @@ class Auth extends CI_Controller
 		$this->email->send();
 	}
 
+	/*******************************************************************************************************************
+	*  funcion que crea el captcha para las validaciones de si es un humano el que esta interactuando con la app @_@  *															   
+	********************************************************************************************************************/
 	/**
 	 * Create CAPTCHA image to verify user as a human
 	 *
@@ -599,6 +661,9 @@ class Auth extends CI_Controller
 		return $cap['image'];
 	}
 
+	/******************************************************************************************************************************************************
+	*  funcion que revisa si los datos ingresados por el usuario coinciden con los del captcha ademas valida que sea dentro del tiempo establecido	 @_@  *															   
+	*******************************************************************************************************************************************************/
 	/**
 	 * Callback function. Check if CAPTCHA test is passed.
 	 *

@@ -16,8 +16,22 @@
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 	
 	<link rel="stylesheet" type="text/css" href="<?= base_url() ?>public/css/formulario.css"/>
-
+	<link rel="stylesheet" href="<?= base_url() ?>public/css/footer.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/datatables/dataTables.bootstrap.css') ?>"/>
+	
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    
+    
+    <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+
+	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	
+	
+	<script src="<?= base_url() ?>Reportegrafico/chart/js/highcharts.js"></script>
+	<script src="<?= base_url() ?>Reportegrafico/chart/js/highcharts-3d.js"></script>
+	<script src="<?= base_url() ?>Reportegrafico/chart/js/modules/exporting.js"></script>
+
     
 </head>
 	<!-- <p><center>Header</center></p> -->
@@ -34,15 +48,15 @@
 		                <span class="icon-bar"></span>
 		                <span class="icon-bar"></span>
 		            </button>
-		            <a href="#" class="navbar-brand">Logotipo</a>
+		            <a href="#" class="navbar-brand"><img height: 30px width: 40px id="logo" src="<?= base_url() ?>public/img/logo.png"></a>
 		        </div>
 		 
 		        <div id="navbarCollapse" class="collapse navbar-collapse">
 		            <ul class="nav navbar-nav">
 		                <li class="active"><a href="<?=base_url() ?>">Inicio</a></li>
-		                <li class="active"><a href="#">Buscar Canción</a></li>
-		                <li class="active"><a href="#">Las 10 más Visitadas</a></li>
-		                <li class="active"><a href="#">Mis Canciones</a></li>		                
+		                <li class="active"><a href="<?=base_url().'index.php/cancion/search_registered' ?>">Buscar Canción</a></li>
+		                <li class="active"><a href="<?=base_url().'index.php/cancion/top_10' ?>">Las 10 más Visitadas</a></li>
+		                <li class="active"><a href="<?=base_url().'index.php/cancion/user'?>">Mis Canciones</a></li>		                
 			        </ul>
 			        <ul>
 			         	<li class="dropdown">

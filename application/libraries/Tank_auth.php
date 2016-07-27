@@ -77,6 +77,7 @@ class Tank_auth
 								'username'	=> $user->avatar_name,
 								'name'	=> $user->name,
 								'image'	=> $user->image,
+								'rol_id'	=> $user->rol_id,
 								'status'	=> ($user->activated == 1) ? STATUS_ACTIVATED : STATUS_NOT_ACTIVATED,
 						));
 
@@ -186,6 +187,12 @@ class Tank_auth
 	function get_status()
 	{
 		return $this->ci->session->userdata('status');
+	}
+	
+	
+	function get_rol_id()
+	{
+		return $this->ci->session->userdata('rol_id');
 	}
 	
 	
@@ -621,7 +628,7 @@ class Tank_auth
 						// Login user
 						$this->ci->session->set_userdata(array(
 								'user_id'	=> $user->id,
-								'username'	=> $user->username,
+								'username'	=> $user->avatar_name,
 								'status'	=> STATUS_ACTIVATED,
 						));
 
